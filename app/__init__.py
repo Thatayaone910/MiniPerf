@@ -1,0 +1,1 @@
+"""MiniPerf application package."""

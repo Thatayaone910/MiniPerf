@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.venv/
+generated/*.js
+results/*.jsonl
+results/tests.json
+*.pyc
