@@ -11,7 +11,8 @@ Performance testing is easier to understand when the responsibilities are separa
 ```text
 HTTP request
 		|
-		v
+		vUse Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
+
 FastAPI -> AIService -> GeminiProvider -> validated TestPlan
 		|                                      |
 		|                                      v
@@ -102,3 +103,7 @@ MiniPerf tests one endpoint with one simple request and has no authentication, d
 ## Future Improvements
 
 Reasonable next steps would be request headers and bodies, a background job for long tests, richer k6 result parsing, SQLite storage, and a small browser form. These are intentionally outside the current MVP.
+
+
+## WTC VERIFICATION CODE 
+WTC-VW4V83TC
