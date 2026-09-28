@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Set up demo environment",
+      "type": "shell",
+      "command": "make setup",
+      "inAgents": true,
+      "runOptions": {
+        "runOn": "worktreeCreated"
+      }
+    },
+    {
+      "label": "Run demo API",
+      "type": "shell",
+      "command": "make demo",
+      "inAgents": true
+    }
+  ]
+}

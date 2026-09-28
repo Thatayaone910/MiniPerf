@@ -45,14 +45,13 @@ Python uses sorted request durations and linear interpolation for percentiles. F
 
 ## Installation
 
-Python 3.12 and k6 are required for a real run. Install Python dependencies in a virtual environment where possible:
+Python 3.12 and k6 are required for a real run. On Linux or macOS, `make demo` creates `.venv` and installs the Python dependencies the first time. Later runs reuse the virtual environment and only reinstall dependencies if `requirements.txt` changes:
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
+make demo
 ```
 
-Install k6 using the instructions for your operating system: <https://grafana.com/docs/k6/latest/set-up/install-k6/>.
+Install k6 separately using the instructions for your operating system: <https://grafana.com/docs/k6/latest/set-up/install-k6/>.
 
 Set the Gemini key in the shell. The key is never stored in result files:
 
@@ -65,10 +64,10 @@ export GEMINI_API_KEY="your-key"
 ## Run the Application
 
 ```bash
-uvicorn app.main:app --reload
+make demo
 ```
 
-The API is available at `http://127.0.0.1:8000`. FastAPI's interactive documentation is at `/docs`.
+The API is available at `http://127.0.0.1:8000`. FastAPI's interactive documentation is at `/docs`. Stop the server with Ctrl+C; run `make demo` again whenever you want to restart it. The `--reload` option also restarts the server when application code changes.
 
 Run a sample test against a local endpoint:
 
@@ -93,6 +92,8 @@ Invalid URLs, invalid requirements, missing k6, failed k6 runs, empty results, a
 ```bash
 pytest -q
 ```
+
+Or run the tests in the project's virtual environment with `make test`.
 
 The test suite covers plan validation, AI fakes, script generation, metric calculation, threshold evaluation, API endpoints, persistence, and missing-k6 handling. It does not require a Gemini key or an installed k6 executable.
 
